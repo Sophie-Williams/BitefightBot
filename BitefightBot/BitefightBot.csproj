@@ -80,9 +80,11 @@
     </ApplicationDefinition>
     <Compile Include="Converters\EnumToCollectionConverter.cs" />
     <Compile Include="Enumerations\EServer.cs" />
+    <Compile Include="Model\LoggerMessage.cs" />
     <Compile Include="Model\ValueDescription.cs" />
+    <Compile Include="Service\DirectoryService.cs" />
     <Compile Include="Service\Javascripter.cs" />
-    <Compile Include="Service\Logger.cs" />
+    <Compile Include="Service\Loggr.cs" />
     <Compile Include="Util\EnumUtil.cs" />
     <Compile Include="Util\FileUtil.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
@@ -121,10 +123,11 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
@@ -145,25 +148,69 @@
     <Folder Include="View\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Javascript\Game\Locations\BuddyList.js" />
-    <Content Include="Javascript\Game\Locations\City.js" />
-    <Content Include="Javascript\Game\Locations\City\Church.js" />
-    <Content Include="Javascript\Game\Locations\City\Graveyard.js" />
-    <Content Include="Javascript\Game\Locations\City\Grotto.js" />
-    <Content Include="Javascript\Game\Locations\City\HouseOfPain.js" />
-    <Content Include="Javascript\Game\Locations\City\Library.js" />
-    <Content Include="Javascript\Game\Locations\City\MarketPlace.js" />
-    <Content Include="Javascript\Game\Locations\City\Merchant.js" />
-    <Content Include="Javascript\Game\Locations\City\Tavern.js" />
-    <Content Include="Javascript\Game\Locations\City\VoodooShop.js" />
-    <Content Include="Javascript\Game\Locations\Clan.js" />
-    <Content Include="Javascript\Game\Locations\Hideout.js" />
-    <Content Include="Javascript\Game\Locations\Hunt.js" />
-    <Content Include="Javascript\Game\Locations\Messages.js" />
-    <Content Include="Javascript\Game\Locations\Notepad.js" />
-    <Content Include="Javascript\Game\Locations\Overview.js" />
-    <Content Include="Javascript\Game\Locations\Settings.js" />
-    <Content Include="Javascript\Homepage\Login.js" />
+    <Content Include="Javascript\Game\Locations\BuddyList.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Javascript\Game\Locations\City.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Javascript\Game\Locations\City\Church.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Javascript\Game\Locations\City\Graveyard.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Javascript\Game\Locations\City\Grotto.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Javascript\Game\Locations\City\HouseOfPain.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Javascript\Game\Locations\City\Library.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Javascript\Game\Locations\City\MarketPlace.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Javascript\Game\Locations\City\Merchant.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Javascript\Game\Locations\City\Tavern.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Javascript\Game\Locations\City\VoodooShop.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Javascript\Game\Locations\Clan.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Javascript\Game\Locations\Hideout.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Javascript\Game\Locations\Hunt.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Javascript\Game\Locations\Messages.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Javascript\Game\Locations\Notepad.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Javascript\Game\Locations\Overview.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Javascript\Game\Locations\Settings.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Javascript\Homepage\Login.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="AfterBuild">
+    <ItemGroup>
+      <MoveToLibFolder Include="$(OutputPath)*.dll ; $(OutputPath)*.pdb ; $(OutputPath)*.xml" />
+    </ItemGroup>
+    <Move SourceFiles="@(MoveToLibFolder)" DestinationFolder="$(OutputPath)lib" OverwriteReadOnlyFiles="true" />
+  </Target>
 </Project>

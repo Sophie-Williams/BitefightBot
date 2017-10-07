@@ -1,10 +1,11 @@
-using System.Collections.ObjectModel;
+using System;
 using DotNetBrowser;
 using DotNetBrowser.Events;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Messaging;
 using BitefightBot.Enumerations;
+using BitefightBot.Model;
 using BitefightBot.Service;
 
 namespace BitefightBot.ViewModel
@@ -21,25 +22,63 @@ namespace BitefightBot.ViewModel
             }
         }
 
+        private void LogMessage(LoggerMessage obj)
+        {
+            LoggerText += obj.Message + Environment.NewLine;
+        }
+
         private bool CanLogin()
         {
-            return !string.IsNullOrEmpty(Username) && !string.IsNullOrEmpty(Password);
+            return !string.IsNullOrEmpty(Username) && !string.IsNullOrEmpty(Password) && !IsLoggedIn;
         }
 
         private void Login()
         {
-            Javascripter.Login(Browser, Username, Password);
+            Loggr.Log($"Logging in user {Username} to {SelectedServer}");
+            Javascripter.Login(Browser, SelectedServer, Username, Password);
+            IsLoggedIn = true;
         }
 
-        private void Test2()
+        // TODO
+        private bool CanStartPvp()
         {
+            return true;
         }
 
-        private void Test3()
+        private void StartPvp()
         {
+            throw new NotImplementedException();
         }
 
-        private void Test4()
+        // TODO
+        private bool CanStartManHunt()
+        {
+            return true;
+        }
+
+        private void StartManHunt()
+        {
+            throw new NotImplementedException();
+        }
+
+        // TODO
+        private bool CanStartGrotto()
+        {
+            return true;
+        }
+
+        private void StartGrotto()
+        {
+            throw new NotImplementedException();
+        }
+
+        // TODO
+        private bool CanStartStory()
+        {
+            return true;
+        }
+
+        private void StartStory()
         {
         }
 
@@ -50,11 +89,13 @@ namespace BitefightBot.ViewModel
         public MainViewModel()
         {
             Messenger.Default.Register<FinishLoadingEventArgs>(this, PageLoaded);
+            Messenger.Default.Register<LoggerMessage>(this, LogMessage);
 
             LoginCommand = new RelayCommand(Login, CanLogin);
-            Test2Command = new RelayCommand(Test2);
-            Test3Command = new RelayCommand(Test3);
-            Test4Command = new RelayCommand(Test4);
+            StartStoryCommand = new RelayCommand(StartStory, CanStartStory);
+            StartGrottoCommand = new RelayCommand(StartGrotto, CanStartGrotto);
+            StartManHuntCommand = new RelayCommand(StartManHunt, CanStartManHunt);
+            StartPvpCommand = new RelayCommand(StartPvp, CanStartPvp);
         }
 
         #endregion CTOR
@@ -62,9 +103,10 @@ namespace BitefightBot.ViewModel
         #region COMMANDS
 
         public RelayCommand LoginCommand { get; set; }
-        public RelayCommand Test2Command { get; set; }
-        public RelayCommand Test3Command { get; set; }
-        public RelayCommand Test4Command { get; set; }
+        public RelayCommand StartStoryCommand { get; set; }
+        public RelayCommand StartGrottoCommand { get; set; }
+        public RelayCommand StartManHuntCommand { get; set; }
+        public RelayCommand StartPvpCommand { get; set; }
 
         #endregion COMMANDS
 
@@ -73,6 +115,8 @@ namespace BitefightBot.ViewModel
         private string _url;
         private Browser _browser;
         private EServer _selectedServer;
+        private bool _isLoggedIn;
+        private string _loggerText;
 
         private string _username;
         private string _password;
@@ -115,6 +159,18 @@ namespace BitefightBot.ViewModel
         {
             get => _password;
             set => Set(() => Password, ref _password, value);
+        }
+
+        public bool IsLoggedIn
+        {
+            get => _isLoggedIn;
+            set => Set(() => IsLoggedIn, ref _isLoggedIn, value);
+        }
+
+        public string LoggerText
+        {
+            get => _loggerText;
+            set => Set(() => LoggerText, ref _loggerText, value);
         }
 
         #endregion GETTERS/SETTERS

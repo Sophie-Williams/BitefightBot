@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
+using BitefightBot.Service;
 using DotNetBrowser.Events;
 using DotNetBrowser.WPF;
 using GalaSoft.MvvmLight.Messaging;
@@ -13,6 +15,8 @@ namespace BitefightBot
         public MainWindow()
         {
             InitializeComponent();
+
+            DirectoryService.Set(AppDomain.CurrentDomain.BaseDirectory);
 
             var webView = new WPFBrowserView();
             webView.FinishLoadingFrameEvent += BrowserView_OnFinishLoadingFrameEvent;

@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BitefightBot.Properties
-{
-
-
+namespace BitefightBot.Properties {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -19,52 +19,206 @@ namespace BitefightBot.Properties
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources
-    {
-
+    internal class Resources {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources()
-        {
+        internal Resources() {
         }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if ((resourceMan == null))
-                {
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BitefightBot.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ##FORM_COUNTY_ACTION_URL##.
+        /// </summary>
+        internal static string HashFormServerActionUrl {
+            get {
+                return ResourceManager.GetString("HashFormServerActionUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ##USERPASS##.
+        /// </summary>
+        internal static string HashPassword {
+            get {
+                return ResourceManager.GetString("HashPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ##SELECTED_COUNTY##.
+        /// </summary>
+        internal static string HashSelectedCounty {
+            get {
+                return ResourceManager.GetString("HashSelectedCounty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ##USERNAME##.
+        /// </summary>
+        internal static string HashUsername {
+            get {
+                return ResourceManager.GetString("HashUsername", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to s19-en.bitefight.gameforge.com.
+        /// </summary>
+        internal static string UrlCounty19 {
+            get {
+                return ResourceManager.GetString("UrlCounty19", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to s20-en.bitefight.gameforge.com.
+        /// </summary>
+        internal static string UrlCounty20 {
+            get {
+                return ResourceManager.GetString("UrlCounty20", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to s202-en.bitefight.gameforge.com.
+        /// </summary>
+        internal static string UrlCounty202 {
+            get {
+                return ResourceManager.GetString("UrlCounty202", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to s21-en.bitefight.gameforge.com.
+        /// </summary>
+        internal static string UrlCounty21 {
+            get {
+                return ResourceManager.GetString("UrlCounty21", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to s22-en.bitefight.gameforge.com.
+        /// </summary>
+        internal static string UrlCounty22 {
+            get {
+                return ResourceManager.GetString("UrlCounty22", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to s3-en.bitefight.gameforge.com.
+        /// </summary>
+        internal static string UrlCounty3 {
+            get {
+                return ResourceManager.GetString("UrlCounty3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to s9-en.bitefight.gameforge.com.
+        /// </summary>
+        internal static string UrlCounty9 {
+            get {
+                return ResourceManager.GetString("UrlCounty9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://s19-en.bitefight.gameforge.com/user/lobbylogincheck.
+        /// </summary>
+        internal static string UrlFormCounty19 {
+            get {
+                return ResourceManager.GetString("UrlFormCounty19", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://s20-en.bitefight.gameforge.com/user/lobbylogincheck.
+        /// </summary>
+        internal static string UrlFormCounty20 {
+            get {
+                return ResourceManager.GetString("UrlFormCounty20", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://s202-en.bitefight.gameforge.com/user/lobbylogincheck.
+        /// </summary>
+        internal static string UrlFormCounty202 {
+            get {
+                return ResourceManager.GetString("UrlFormCounty202", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://s21-en.bitefight.gameforge.com/user/lobbylogincheck.
+        /// </summary>
+        internal static string UrlFormCounty21 {
+            get {
+                return ResourceManager.GetString("UrlFormCounty21", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://s22-en.bitefight.gameforge.com/user/lobbylogincheck.
+        /// </summary>
+        internal static string UrlFormCounty22 {
+            get {
+                return ResourceManager.GetString("UrlFormCounty22", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://s3-en.bitefight.gameforge.com/user/lobbylogincheck.
+        /// </summary>
+        internal static string UrlFormCounty3 {
+            get {
+                return ResourceManager.GetString("UrlFormCounty3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://s9-en.bitefight.gameforge.com/user/lobbylogincheck.
+        /// </summary>
+        internal static string UrlFormCounty9 {
+            get {
+                return ResourceManager.GetString("UrlFormCounty9", resourceCulture);
             }
         }
     }
